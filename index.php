@@ -16,16 +16,22 @@
 
  $user = new UserEntity();
 
- $user->setPseudo("motivation");
- $user->setEmail("motivation@email.com");
- $user->setFirstname("Pauline");
- $user->setLastname("LA JOIE");
- $user->setSexe(1);
- $user->setAdresseFactutation("Adresse fac");
- $user->setAdresseLivraison("Adresse Liv");
- $user->setIdUser(3);
+ $product = new ProductEntity();
+$product->setname("Produt de test");
+$product->setDescription("bla bla bla");
+$product->setStock(200);
+$product->setPrice(56.96);
+$product->setCategory(2);
+$product->setImage("ddazedaz.png");
 
- $var = $db->deleteUsers($user);
-var_dump($var);
+$order = new OrdersEntity();
+$order->setIdUser(11);
+$order->setIdProduct(14);
+$order->setQuantity(5);
+$order->setPrice(269.36);
+ //$user->setIdUser(103);
+
+// $var = $db->createOrders($order);
+//var_dump($var);
 
 ?>
