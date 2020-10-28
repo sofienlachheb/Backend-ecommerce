@@ -25,9 +25,7 @@
  $user->setPassword("test2020");
  
 
- //$user->setIdUser(103);
 
-$var = $db->authentifier($user);
-var_dump($var);
+
 
 ?>
