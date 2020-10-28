@@ -9,29 +9,25 @@
 
  $db = new DataLayer();
 
- $users = $db->getUsers();
- $categories = $db->getCategory();
- $products = $db->getProduct();
- $orders = $db->getOrders();
+ /*$user1 = new UserEntity();
+ $user1->setsexe(1);
+ $user1->setEmail("testdatabase@test.tes");
+ $user1->setPseudo("Paul");
+ $user1->setPassword("test2020");
+ $user1->setFirstname("AGBA");
+ $user1->setLastname("Pascal");
+ $user1->setDateBirth("12/12/19989");
+
+ $db->createUser($user1);*/
 
  $user = new UserEntity();
+ $user->setEmail("testdatabase@test.tes");
+ $user->setPassword("test2020");
+ 
 
- $product = new ProductEntity();
-$product->setname("Produt de test");
-$product->setDescription("bla bla bla");
-$product->setStock(200);
-$product->setPrice(56.96);
-$product->setCategory(2);
-$product->setImage("ddazedaz.png");
-
-$order = new OrdersEntity();
-$order->setIdUser(11);
-$order->setIdProduct(14);
-$order->setQuantity(5);
-$order->setPrice(269.36);
  //$user->setIdUser(103);
 
-// $var = $db->createOrders($order);
-//var_dump($var);
+$var = $db->authentifier($user);
+var_dump($var);
 
 ?>

@@ -16,7 +16,7 @@ class UserEntity{
 
     protected ?int  $sexe;
 
-    protected string  $password;
+    protected ?string  $password;
 
     protected ?string  $firstname;
 
@@ -28,7 +28,7 @@ class UserEntity{
 
     protected string  $adresseFactutation;
 
-    protected string  $tel;
+    protected ?string  $tel;
 
     protected string  $dateBirth;
     

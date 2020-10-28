@@ -24,7 +24,48 @@ class DataLayer{
     }
 
     /**
-     * Methode permettant de persister un utilisateur en BD 
+     * Méthode permettant d'authentifier un utilisateur 
+     * @param UserEntity $user Objet métier décrivant un utilisateur 
+     * @return UserEntity $user Objet métier décrivant l'utilisateur authentifié
+     * @return FALSE En cas d'échec d'authentification
+     * @return NULL Exception déclenchée 
+    */
+    function authentifier(UserEntity $user){
+        $sql = "SELECT * FROM `ecommerce`.`customers` WHERE email = :email";
+
+        try {
+            $result = $this->connexion->prepare($sql);
+            $var = $result->execute(array(
+                ':email'=>$user->getEmail()
+            ));
+
+            $data = $result->fetch(PDO::FETCH_OBJ);
+
+            if($data && ($data->password == sha1($user->getPassword()))){
+                // authentification réussie
+                $user->setIdUser($data->id);
+                $user->setSexe($data->sexe);
+                $user->setFirstname($data->firstname);
+                $user->setLastname($data->lastname);
+                $user->setPassword(NULL);
+                $user->setAdresseFactutation($data->adresse_facturation);
+                $user->setAdresseLivraison($data->adresse_livraison);
+                $user->setTel($data->tel);
+                $user->setDateBirth($data->dateBirth);
+
+                return $user;
+
+            }else{
+                // authentification échouée
+                return FALSE;
+            }
+        } catch (PDOException $th) {
+            return NULL;
+        }
+    }
+
+    /**
+     * Methode permettant de créer un utilisateur en BD 
      * @param UserEntity $user Objet métier décrivant un un utilisateur
      * @return TRUE Persistance réussie
      * @return FALSE Echec de la persistance
