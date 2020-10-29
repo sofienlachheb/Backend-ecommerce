@@ -53,5 +53,13 @@ function clearData($objetMetier){
     return $result;
 }
 
+function clearDataArray($array_obj_met){
+    $result = [];
+    foreach ($array_obj_met as $key => $value) {
+        $result[$key] = clearData($value);
+    }
+    return $result;
+}
+
 
 ?>

@@ -444,9 +444,9 @@ class DataLayer{
                 ':id_product' => $order->getIdproduct(),
                 ':quantity' => $order->getQuantity(),
                 ':price' => $order->getPrice(),
-                ':id' => $order->getIdorder()
+                ':id' => $order->getIdOrder()
             ));
-            var_dump($var);
+            //var_dump($var);
             if($var){
                 return TRUE;
             }else{
