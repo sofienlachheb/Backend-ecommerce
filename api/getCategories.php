@@ -9,8 +9,9 @@ try {
         produceError("Problème de Récupération des catégories");
     }
 } catch (Exception $th) {
-    produceError("Echec de Récupération des catégories");
+    produceError($th->getMessage());
 }
+
 
 
 ?>

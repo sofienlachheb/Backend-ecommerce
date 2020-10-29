@@ -9,8 +9,9 @@ try {
         produceError("Problème de Récupération des commandes");
     }
 } catch (Exception $th) {
-    produceError("Echec de Récupération des commandes");
+    produceError($th->getMessage());
 }
+
 
 
 ?>

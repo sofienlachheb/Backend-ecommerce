@@ -31,8 +31,9 @@ try {
    }
 
 } catch (Exception $th) {
-    produceError("Exception déclenchée lors de la création. Merci de réessayer !");
+    produceError($th->getMessage());
 }
+
 
 
 ?>

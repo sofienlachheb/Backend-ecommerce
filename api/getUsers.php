@@ -9,8 +9,9 @@ try {
         produceError("Problème de Récupération des utilisateurs");
     }
 } catch (Exception $th) {
-    produceError("Echec de Récupération des utilisateurs");
+    produceError($th->getMessage());
 }
+
 
 
 ?>
