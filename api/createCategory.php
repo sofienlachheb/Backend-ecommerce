@@ -1,6 +1,7 @@
 <?php 
 require 'commun_services.php';
 
+
 if(!isset($_REQUEST['name']) || empty($_REQUEST['name'])){
     produceErrorRequest();
     return;

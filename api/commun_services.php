@@ -8,6 +8,8 @@ define("SP",DIRECTORY_SEPARATOR);
 define("CONFIG", ROOT.SP."config"); 
 define("MODEL", ROOT.SP."model");
 define("ENTITY", ROOT.SP."entity");
+define("API_KEY", 'adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41');
+
 
 require CONFIG.SP."config.php";
 require MODEL.SP."DataLayer.class.php";
@@ -31,7 +33,7 @@ function produceError($message){
 }
 
 function produceErrorAuth(){
-    answer(['status'=>401,'message'=>'Erreur d\'authentification']);
+    answer(['status'=>401,'message'=>'Authentification requis !']);
 }
 
 function produceErrorRequest(){
@@ -60,6 +62,23 @@ function clearDataArray($array_obj_met){
     }
     return $result;
 }
+
+function controlAccess(){
+    global $_REQUEST;
+    if(!isset($_REQUEST['API_KEY']) || empty($_REQUEST['API_KEY'])){
+        produceErrorAuth();
+        exit();
+    }elseif ($_REQUEST['API_KEY'] !== API_KEY) {
+        produceError("ApI_KEY incorrecte !");
+        exit();
+    }
+}
+
+controlAccess();
+
+
+
+
 
 
 ?>
