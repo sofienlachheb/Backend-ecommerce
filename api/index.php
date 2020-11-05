@@ -7,7 +7,7 @@ $url_clean = explode("/", $url);
 
 
 
-if(sizeof($url_clean) < 4){
+if(sizeof($url_clean) !== 4){
     header("Location: ../");
     exit();
 }else{

@@ -74,7 +74,7 @@ function controlAccess(){
     }
 }
 
-//controlAccess();
+controlAccess();
 
 
 
