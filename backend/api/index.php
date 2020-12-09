@@ -19,13 +19,33 @@ if(sizeof($url_clean) !== 4){
     }
 
     if($_SERVER["REQUEST_METHOD"] === "GET"){
-        require './get'.ucwords($action).".php";
+        if(file_exists('./get'.ucwords($action).".php"))
+        { 
+               require './get'.ucwords($action).".php";
+        }else{
+            require "./404.php";
+        }
     }elseif($_SERVER["REQUEST_METHOD"] === "POST"){
-        require './create'.ucwords($action).".php";
+        if(file_exists('./create'.ucwords($action).".php"))
+        { 
+               require './create'.ucwords($action).".php";
+        }else{
+            require "./404.php";
+        }
     }elseif($_SERVER["REQUEST_METHOD"] === "DELETE"){
-        require './delete'.ucwords($action).".php";
+        if(file_exists('./delete'.ucwords($action).".php"))
+        { 
+               require './delete'.ucwords($action).".php";
+        }else{
+            require "./404.php";
+        }
     }elseif($_SERVER["REQUEST_METHOD"] === "PUT"){
-        require './update'.ucwords($action).".php";
+        if(file_exists('./update'.ucwords($action).".php"))
+        { 
+               require './update'.ucwords($action).".php";
+        }else{
+            require "./404.php";
+        }
     }
 
 
