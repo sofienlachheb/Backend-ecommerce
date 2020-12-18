@@ -7,21 +7,21 @@
  */
 class ProductEntity{
 
-    protected ?int $idProduct;
+    protected  $idProduct;
 
-    protected string $name;
+    protected  $name;
 
-    protected string  $description;
+    protected   $description;
 
-    protected float  $price;
+    protected   $price;
 
-    protected int  $stock;
+    protected   $stock;
 
-    protected string  $Category;
+    protected   $Category;
 
-    protected string $image;
+    protected  $image;
     
-    protected string $createdAt;
+    protected  $createdAt;
 
     function getIdProduct() { 
         return $this->idProduct; 
