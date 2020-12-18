@@ -2,7 +2,8 @@
 date_default_timezone_set("Europe/Paris");
 header("Content-type: application/json; charset=UTF-8");
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+
 
 define("API", dirname(__FILE__));
 define("ROOT", dirname(API));
@@ -26,6 +27,7 @@ function answer($response){
     global $_REQUEST;
     $response['args'] = $_REQUEST;
     unset($response['args']['password']);
+    unset($response['args']['API_KEY']);
     $response['time'] = date('d/m/Y H:i:s');
     echo json_encode($response);
 }

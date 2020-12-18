@@ -10,29 +10,29 @@ class UserEntity{
 
     protected $idUser;
 
-    protected string  $pseudo;
+    protected   $pseudo;
 
-    protected string  $email;
+    protected   $email;
 
-    protected ?int  $sexe;
+    protected   $sexe;
 
-    protected ?string  $password;
+    protected   $password;
 
-    protected ?string  $firstname;
+    protected   $firstname;
 
-    protected ?string  $lastname;
+    protected   $lastname;
 
-    protected string  $description;
+    protected   $description;
 
-    protected string  $adresseLivraison;
+    protected   $adresseLivraison;
 
-    protected string  $adresseFactutation;
+    protected   $adresseFactutation;
 
-    protected ?string  $tel;
+    protected   $tel;
 
-    protected string  $dateBirth;
+    protected   $dateBirth;
     
-    protected string  $createdAt;
+    protected   $createdAt;
 
     function getIdUser() { 
         return $this->idUser; 
