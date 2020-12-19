@@ -33,7 +33,7 @@ class DataLayer{
      * @return NULL Exception déclenchée 
     */
     function authentifier(UserEntity $user){
-        $sql = "SELECT * FROM ".DB_NAME.".`customers` WHERE email = :email";
+        $sql = "SELECT * FROM '.DB_NAME.'.`customers` WHERE email = :email";
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -75,11 +75,10 @@ class DataLayer{
      */
 
     function createUser(UserEntity $user){
-        $sql = "INSERT INTO ".DB_NAME.".`customers` (sexe,pseudo,email,password,firstname,lastname,dateBirth)
+        $sql = "INSERT INTO '.DB_NAME.'.`customers` (sexe,pseudo,email,password,firstname,lastname,dateBirth)
          VALUES (:sexe,:pseudo,:email,:password,:firstname,:lastname,:dateBirth)";
          try {
              $result = $this->connexion->prepare($sql);
-             
              $data = $result->execute(array(
                 ':sexe' => $user->getSexe(),
                 ':pseudo' => $user->getPseudo(),
@@ -89,7 +88,6 @@ class DataLayer{
                 'lastname' => $user->getLastname(),
                 ':dateBirth' => $user->getDateBirth()
              ));
-             //var_dump($data);exit();
              if($data){
                  return TRUE;
              }else {
@@ -108,7 +106,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function createCategory(CategoryEntity $category){
-        $sql = "INSERT INTO ".DB_NAME.".`category`(`category`) VALUES (:name)";
+        $sql = "INSERT INTO '.DB_NAME.'.`category`(`category`) VALUES (:name)";
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -133,8 +131,8 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function createProduct(ProductEntity $product){
-        $sql ="INSERT INTO ".DB_NAME.".`product`(`name`, `description`, `price`, `stock`, `category`, `image`) 
-        VALUES (:name,:description,:price,:stock,:category,:image)";
+        $sql ='INSERT INTO '.DB_NAME.'.`product`(`name`, `description`, `price`, `stock`, `category`, `image`) 
+        VALUES (:name,:description,:price,:stock,:category,:image)';
         try {
             $result = $this->connexion->prepare($sql);
             $data = $result->execute(array(
@@ -163,8 +161,8 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function createOrders(OrdersEntity $orders){
-        $sql = "INSERT INTO ".DB_NAME.".`orders`(`id_customers`, `id_product`, `quantity`, `price`)
-         VALUES (:idCustomer,:idProduct,:quantity,:price)";
+        $sql = 'INSERT INTO '.DB_NAME.'.`orders`(`id_customers`, `id_product`, `quantity`, `price`)
+         VALUES (:idCustomer,:idProduct,:quantity,:price)';
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -192,7 +190,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function getUsers(){
-        $sql = "SELECT * FROM ".DB_NAME.".`customers`";
+        $sql = 'SELECT * FROM '.DB_NAME.'.`customers`';
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -229,7 +227,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function getCategory(){
-        $sql = "SELECT * FROM ".DB_NAME.".`category`";
+        $sql = 'SELECT * FROM '.DB_NAME.'.`category`';
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -264,7 +262,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function getProduct(){
-        $sql = "SELECT * FROM ".DB_NAME.".`product`";
+        $sql = 'SELECT * FROM '.DB_NAME.'.`product`';
         //echo  $sql;exit();
         try {
             $result = $this->connexion->prepare($sql);
@@ -305,7 +303,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function getOrders(){
-        $sql = "SELECT * FROM ".DB_NAME.".`orders`";
+        $sql = 'SELECT * FROM '.DB_NAME.'.`orders`';
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -345,7 +343,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function updateUsers(UserEntity $user){
-        $sql ="UPDATE ".DB_NAME.".`customers` SET ";
+        $sql ="UPDATE '.DB_NAME.'.`customers` SET ";
         try {
             $sql .= " Pseudo = '".$user->getPseudo()."',";
             $sql .= " email = '".$user->getEmail()."',";
@@ -380,7 +378,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function updateProduct(ProductEntity $product){
-        $sql = "UPDATE ".DB_NAME.".`product` SET `name`=:name,`description`=:description,`price`=:price,
+        $sql = "UPDATE '.DB_NAME.'.`product` SET `name`=:name,`description`=:description,`price`=:price,
         `stock`=:stock,`category`=:category,`image`=:image WHERE id=:id";
          try {
             $result = $this->connexion->prepare($sql);
@@ -412,7 +410,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function updateCategory(CategoryEntity $category){
-        $sql = "UPDATE ".DB_NAME.".`category` SET `category`=:name WHERE id=:id";
+        $sql = "UPDATE '.DB_NAME.'.`category` SET `category`=:name WHERE id=:id";
         
         try {
             $result = $this->connexion->prepare($sql);
@@ -439,7 +437,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function updateOrders(OrdersEntity $order){
-        $sql = "UPDATE ".DB_NAME.".`orders` SET `id_customers`=:id_customers, `id_product`=:id_product, `quantity`=:quantity, `price`=:price
+        $sql = "UPDATE '.DB_NAME.'.`orders` SET `id_customers`=:id_customers, `id_product`=:id_product, `quantity`=:quantity, `price`=:price
          WHERE id=:id";
         try {
             $result = $this->connexion->prepare($sql);
@@ -471,7 +469,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function deleteUsers(UserEntity $user){
-        $sql = "DELETE FROM ".DB_NAME.".`customers` WHERE id=".$user->getIdUser();
+        $sql = "DELETE FROM '.DB_NAME.'.`customers` WHERE id=".$user->getIdUser();
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -495,7 +493,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function deleteProduct(ProductEntity $product){
-        $sql = "DELETE FROM ".DB_NAME.".`product` WHERE id=".$product->getIdProduct();
+        $sql = "DELETE FROM '.DB_NAME.'.`product` WHERE id=".$product->getIdProduct();
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -519,7 +517,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function deleteCategory(CategoryEntity $category){
-        $sql = "DELETE FROM ".DB_NAME.".`category` WHERE id=".$category->getIdCategory();
+        $sql = "DELETE FROM '.DB_NAME.'.`category` WHERE id=".$category->getIdCategory();
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -543,7 +541,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function deleteOrders(OrdersEntity $order){
-        $sql = "DELETE FROM ".DB_NAME.".`orders` WHERE id=".$order->getIdOrder();
+        $sql = "DELETE FROM '.DB_NAME.'.`orders` WHERE id=".$order->getIdOrder();
 
         try {
             $result = $this->connexion->prepare($sql);

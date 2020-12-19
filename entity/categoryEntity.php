@@ -10,12 +10,12 @@ class CategoryEntity{
     /**
      * Identifiant de la categorie
      */
-    protected  $idCategory;
+    protected ?int $idCategory;
 
     /**
      * Le nom de la categorie
      */
-    protected  $name;
+    protected string $name;
 
 
     /**

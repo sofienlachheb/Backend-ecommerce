@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 09 déc. 2020 à 18:33
--- Version du serveur :  10.4.16-MariaDB
--- Version de PHP : 7.4.12
+-- Généré le : mar. 27 oct. 2020 à 11:15
+-- Version du serveur :  10.4.14-MariaDB
+-- Version de PHP : 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -173,7 +173,8 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `category`
 (34, 'Doux décontracté', 'Doux décontracté épais Sneaker plate-forme été respirant maille chaussures pour femmes plat décontracté jaune chaussures de sport femme Orange 2020', 499.99, 222, 5, 'm4.png', '2020-04-01 11:13:38'),
 (35, 'baskets légères', 'Mode femmes baskets légères chaussures de sport femmes chaussures respirant confort plate-forme chaussures pour dames Basket Femme formateurs', 666.99, 889, 5, 'm5.png', '2020-04-01 11:13:38'),
 (36, 'baskets blanc noir', 'Femmes baskets blanc noir chaussures de créateur femme automne hiver grosses baskets mode lumière papa chaussures dames plate-forme chaussures', 788.99, 333, 5, 'm6.png', '2020-04-01 11:13:38'),
-(37, 'baskets femmes hauteur', 'nouveau élégant femme chaussures de course augmentant 6CM INS haut talon baskets femmes hauteur plate-forme respirant sport marche filles', 568.99, 222, 5, 'm7.png', '2020-04-01 11:13:38');
+(37, 'baskets femmes hauteur', 'nouveau élégant femme chaussures de course augmentant 6CM INS haut talon baskets femmes hauteur plate-forme respirant sport marche filles', 568.99, 222, 5, 'm7.png', '2020-04-01 11:13:38'),
+(39, 'Produt de test', 'bla bla bla', 56.96, 200, 2, 'ddazedaz.png', '2020-10-27 09:17:37');
 
 --
 -- Index pour les tables déchargées

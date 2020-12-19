@@ -7,17 +7,17 @@
  */
 class OrdersEntity{
 
-    protected  $idOrder;
+    protected ?int $idOrder;
 
-    protected  $idUser;
+    protected int $idUser;
 
-    protected  $idProduct;
+    protected int $idProduct;
 
-    protected  $quantity;
+    protected int $quantity;
 
-    protected  $price;
+    protected float $price;
     
-    protected  $createdAd;
+    protected string $createdAd;
 
     function getIdOrder() { 
         return $this->idOrder; 

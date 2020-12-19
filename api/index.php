@@ -1,11 +1,13 @@
 <?php 
 
-//var_dump($_SERVER["REQUEST_URI"]);
 $url = trim($_SERVER["REQUEST_URI"],'/');
 
 $url_clean = explode("/", $url);
 
-
+function logMessageAccess($message){
+    $message = date('d/m/Y H:i:s').' '.$message.PHP_EOL;
+    file_put_contents("../log/access.txt", $message, FILE_APPEND | LOCK_EX);
+}
 
 if(sizeof($url_clean) !== 4){
     header("Location: ../");
@@ -17,36 +19,27 @@ if(sizeof($url_clean) !== 4){
         $temp = explode("?",$action);
         $action = $temp[0];
     }
-
+    $page = "";
     if($_SERVER["REQUEST_METHOD"] === "GET"){
-        if(file_exists('./get'.ucwords($action).".php"))
-        { 
-               require './get'.ucwords($action).".php";
-        }else{
-            require "./404.php";
-        }
+        $page .= './get'.ucwords($action).".php";
     }elseif($_SERVER["REQUEST_METHOD"] === "POST"){
-        if(file_exists('./create'.ucwords($action).".php"))
-        { 
-               require './create'.ucwords($action).".php";
-        }else{
-            require "./404.php";
-        }
+        $page .= './create'.ucwords($action).".php";
     }elseif($_SERVER["REQUEST_METHOD"] === "DELETE"){
-        if(file_exists('./delete'.ucwords($action).".php"))
-        { 
-               require './delete'.ucwords($action).".php";
-        }else{
-            require "./404.php";
-        }
+        $page .= './delete'.ucwords($action).".php";
     }elseif($_SERVER["REQUEST_METHOD"] === "PUT"){
-        if(file_exists('./update'.ucwords($action).".php"))
-        { 
-               require './update'.ucwords($action).".php";
-        }else{
-            require "./404.php";
-        }
+        $page .= './update'.ucwords($action).".php";
     }
+
+    if(file_exists($page)){
+        logMessageAccess("Accès à la page : ".$page);
+        require $page;
+    }else{
+        logMessageAccess("404 Tentative d'accès à la page : ".$page);
+        require '404.php';
+    }
+
+    //var_dump($page);exit();
+    
 
 
 }

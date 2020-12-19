@@ -1,9 +1,10 @@
 <?php 
+
+
 date_default_timezone_set("Europe/Paris");
 header("Content-type: application/json; charset=UTF-8");
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
 define("API", dirname(__FILE__));
 define("ROOT", dirname(API));
@@ -27,12 +28,12 @@ function answer($response){
     global $_REQUEST;
     $response['args'] = $_REQUEST;
     unset($response['args']['password']);
-    unset($response['args']['API_KEY']);
     $response['time'] = date('d/m/Y H:i:s');
     echo json_encode($response);
 }
 
 function produceError($message){
+    logMessage($message);
     answer(['status'=>404,'message'=>$message]);
 }
 
@@ -41,6 +42,7 @@ function produceErrorAuth(){
 }
 
 function produceErrorRequest(){
+    logMessage("Requete mal formulée");
     answer(['status'=>400,'message'=>'Requête mal formulée']);
 }
 
@@ -71,11 +73,19 @@ function controlAccess(){
     global $_REQUEST;
     if(!isset($_REQUEST['API_KEY']) || empty($_REQUEST['API_KEY'])){
         produceErrorAuth();
+        logMessage('Un utilisateur a tenté sans clé API');
         exit();
     }elseif ($_REQUEST['API_KEY'] !== API_KEY) {
         produceError("ApI_KEY incorrecte !");
+        logMessage('Un utilisateur a tenté une clé API Incorrecte');
         exit();
     }
+    
+}
+
+function logMessage($message){
+    $message = date('d/m/Y H:i:s').' '.$message.PHP_EOL;
+    file_put_contents("../log/log.txt", $message, FILE_APPEND | LOCK_EX);
 }
 
 controlAccess();

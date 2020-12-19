@@ -18,6 +18,6 @@
        
     ];
 
-    $_ROUTES = ["products", "category", "orders","users","image"];
+    $_ROUTES = ["products", "category", "orders","users"];
 
 ?>

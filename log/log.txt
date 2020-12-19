@@ -1,0 +1,14 @@
+19/12/2020 12:20:51ApI_KEY incorrecte !
+19/12/2020 12:20:51Un utilisateur a tenté une clé API Incorrecte
+19/12/2020 12:20:53ApI_KEY incorrecte !
+19/12/2020 12:20:53Un utilisateur a tenté une clé API Incorrecte
+19/12/2020 12:20:59Un utilisateur a tenté sans clé API
+19/12/2020 12:29:03Accèes à la page : ./getProducts.php
+19/12/2020 12:29:43Accèes à la page : ./getProducts.php
+19/12/2020 12:32:14Requete mal formulée
+19/12/2020 12:32:33Requete mal formulée
+19/12/2020 12:32:37Requete mal formulée
+ 19/12/2020 12:40:39Un utilisateur a tenté sans clé API
+ 19/12/2020 12:41:48Un utilisateur a tenté sans clé API
+ 19/12/2020 12:42:00ApI_KEY incorrecte !
+ 19/12/2020 12:42:00Un utilisateur a tenté une clé API Incorrecte
