@@ -21,5 +21,6 @@ git clone https://github.com/espero-soft/Backend-ecommerce.git
 	- Modifier le nom de la base de données 
 	- Modifier le nom d'utilisateur (accessible au niveau de compte utilisateur dans phpMyAdmin)
 	- Modifier le mot de passe associé à l'utilisateur (si c'est défini, laisser vide le cas contraire)
+	- Le host ne changera pas en local
 
 [Lien vers la vidéo de mise en place](https://www.youtube.com/watch?v=xSmQWPwTH-0&list=PLcjUkwa1cc3_nOi5r8wMCTNH6tz4Qo3zk&index=3&t=8s)
