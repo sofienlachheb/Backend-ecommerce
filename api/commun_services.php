@@ -1,10 +1,10 @@
 <?php 
-
-
 date_default_timezone_set("Europe/Paris");
 header("Content-type: application/json; charset=UTF-8");
-header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Credentials: true');
 
 define("API", dirname(__FILE__));
 define("ROOT", dirname(API));
@@ -13,14 +13,16 @@ define("CONFIG", ROOT.SP."config");
 define("MODEL", ROOT.SP."model");
 define("ENTITY", ROOT.SP."entity");
 define("API_KEY", 'adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41');
-
-
 require CONFIG.SP."config.php";
-require MODEL.SP."DataLayer.class.php";
-require ENTITY.SP."userEntity.php";
-require ENTITY.SP."categoryEntity.php";
-require ENTITY.SP."productEntity.php";
-require ENTITY.SP."ordersEntity.php";
+
+spl_autoload_register(function ($class) {
+    if(file_exists(ENTITY.SP. $class . '.php')){
+        require_once ENTITY.SP. $class . '.php';
+    }else{
+        require_once MODEL.SP. $class . '.class.php';
+    }
+    
+});
 
 $db = new DataLayer();
 
@@ -28,6 +30,7 @@ function answer($response){
     global $_REQUEST;
     $response['args'] = $_REQUEST;
     unset($response['args']['password']);
+    unset($response['args']['API_KEY']);
     $response['time'] = date('d/m/Y H:i:s');
     echo json_encode($response);
 }

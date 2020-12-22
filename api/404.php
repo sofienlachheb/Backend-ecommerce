@@ -1,10 +1,14 @@
+<?php
+require '../config/config.php';
+define("BASE_URL", dirname($_SERVER['SCRIPT_NAME']));
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-    
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
  <style>
    
@@ -56,8 +60,22 @@
  </style>
     <title>API JSORE !</title>
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#">JSTORE API</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
     <h1 class="display-1 text-center">404</h1>
-    <p class="display-3 text-center">Désolé, la page que vous recherchez n'existe pas sur nos serveurs ! </p>
+    <p class="display-3 text-center">Désolé, la page que vous recherchez <br>
+     n'existe pas sur nos serveurs !
+     <br>
+     <a href="<?php echo BASE_URL; ?>" class="btn btn-success btn-lg">Retour à la documentation</a>
+     </p>
+
+    
 </body>
 </html>

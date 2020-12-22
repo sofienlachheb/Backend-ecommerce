@@ -34,7 +34,8 @@ if(sizeof($url_clean) !== 4){
         logMessageAccess("Accès à la page : ".$page);
         require $page;
     }else{
-        logMessageAccess("404 Tentative d'accès à la page : ".$page);
+        $message = "404 Tentative d'accès à la page : ".$page;
+        logMessageAccess($message);
         require '404.php';
     }
 
