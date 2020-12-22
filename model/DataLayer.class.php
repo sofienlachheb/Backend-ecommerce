@@ -75,7 +75,7 @@ class DataLayer{
      */
 
     function createUser(UserEntity $user){
-        $sql = "INSERT INTO '.DB_NAME.'.`customers` (sexe,pseudo,email,password,firstname,lastname,dateBirth)
+        $sql = "INSERT INTO ".DB_NAME.".`customers` (sexe,pseudo,email,password,firstname,lastname,dateBirth)
          VALUES (:sexe,:pseudo,:email,:password,:firstname,:lastname,:dateBirth)";
          try {
              $result = $this->connexion->prepare($sql);
@@ -106,7 +106,7 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function createCategory(CategoryEntity $category){
-        $sql = "INSERT INTO '.DB_NAME.'.`category`(`category`) VALUES (:name)";
+        $sql = "INSERT INTO ".DB_NAME.".`category`(`category`) VALUES (:name)";
 
         try {
             $result = $this->connexion->prepare($sql);
