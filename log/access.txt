@@ -341,3 +341,15 @@
 22/12/2020 14:44:42 Accès à la page : ./createUsers.php
 22/12/2020 14:44:52 Accès à la page : ./createUsers.php
 22/12/2020 14:45:52 Accès à la page : ./createUsers.php
+29/12/2020 06:45:24 Accès à la page : ./getCategory.php
+29/12/2020 06:45:24 404 Tentative d'accès à la page : 
+29/12/2020 06:46:01 Accès à la page : ./getCategory.php
+29/12/2020 06:46:01 404 Tentative d'accès à la page : 
+29/12/2020 06:46:04 Accès à la page : ./getCategory.php
+29/12/2020 06:46:04 404 Tentative d'accès à la page : 
+29/12/2020 06:59:19 Accès à la page : ./getUsers.php
+29/12/2020 06:59:19 404 Tentative d'accès à la page : 
+29/12/2020 07:04:19 Accès à la page : ./getUsers.php
+29/12/2020 07:04:19 404 Tentative d'accès à la page : 
+29/12/2020 07:04:33 404 Tentative d'accès à la page : ./getUseors.php
+29/12/2020 07:04:33 404 Tentative d'accès à la page : 

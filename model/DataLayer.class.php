@@ -86,11 +86,12 @@ class DataLayer{
                 ':email' => $user->getEmail(),
                 ':password' => sha1($user->getPassword()),
                 ':firstname' => $user->getFirstname(),
-                'lastname' => $user->getLastname(),
+                ':lastname' => $user->getLastname(),
                 ':dateBirth' => $user->getDateBirth()
              ));
+             //var_dump($sql);
              if($data){
-                 return TRUE;
+                 return $this->connexion->lastInsertId();
              }else {
                  return FALSE;
              }
@@ -107,15 +108,16 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function createCategory(CategoryEntity $category){
-        $sql = "INSERT INTO ".DB_NAME.".`category`(`category`) VALUES (:name)";
+        $sql = "INSERT INTO ".DB_NAME.".`category`(`category`,`icon`) VALUES (:name,:icon)";
 
         try {
             $result = $this->connexion->prepare($sql);
             $data = $result->execute(array(
-                ':name' => $category->getName()
+                ':name' => $category->getName(),
+                ':icon' => $category->getIcon()
             ));
             if($data){
-                return TRUE;
+                return $this->connexion->lastInsertId();
             }else{
                 return FALSE;
             }
@@ -145,7 +147,7 @@ class DataLayer{
                 ':image'=> $product->getImage()
             ));
             if($data){
-                return TRUE;
+                return $this->connexion->lastInsertId();
             }else{
                 return FALSE;
             }
@@ -174,7 +176,7 @@ class DataLayer{
                 ':price' => $orders->getPrice()
             ));
             if($data){
-                return TRUE;
+                return $this->connexion->lastInsertId();
             }else{
                 return FALSE;
             }
@@ -239,6 +241,7 @@ class DataLayer{
                 $category = new CategoryEntity();
                 $category->setIdCategory($data->id);
                 $category->setName($data->category);
+                $category->setIcon($data->icon);
 
                 $categories[] = $category;
             }
@@ -442,12 +445,13 @@ class DataLayer{
      * @return NULL Exception déclenchée
      */
     function updateCategory(CategoryEntity $category){
-        $sql = "UPDATE ".DB_NAME.".`category` SET `category`=:name WHERE id=:id";
+        $sql = "UPDATE ".DB_NAME.".`category` SET `category`=:name, `icon`=:icon WHERE id=:id";
         
         try {
             $result = $this->connexion->prepare($sql);
             $var = $result->execute(array(
                 ':name' => $category->getName(),
+                ':icon' => $category->getIcon(),
                 ':id' => $category->getIdcategory()
             ));
             if($var){

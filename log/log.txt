@@ -81,3 +81,10 @@
 22/12/2020 14:44:14 Requete mal formulée
 22/12/2020 14:44:42 Problème rencontré lors de la création du compte
 22/12/2020 14:44:52 Problème rencontré lors de la création du compte
+29/12/2020 06:46:01 ApI_KEY incorrecte !
+29/12/2020 06:46:01 Un utilisateur a tenté une clé API Incorrecte
+29/12/2020 06:54:03 Un utilisateur a tenté sans clé API
+29/12/2020 06:54:43 Un utilisateur a tenté sans clé API
+29/12/2020 06:57:30 Un utilisateur a tenté sans clé API
+29/12/2020 07:02:08 Un utilisateur a tenté sans clé API
+29/12/2020 07:03:10 Un utilisateur a tenté sans clé API

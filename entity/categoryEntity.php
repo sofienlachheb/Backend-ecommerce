@@ -17,6 +17,11 @@ class CategoryEntity{
      */
     protected $name;
 
+    /**
+     * Le nom de la categorie
+     */
+    protected $icon = null;
+
 
     /**
      *  Getter et Setter
@@ -27,6 +32,14 @@ class CategoryEntity{
 
     function setIdCategory($idCategory) {  
         $this->idCategory = $idCategory; 
+    } 
+
+    function getIcon() { 
+        return $this->icon; 
+    } 
+
+    function setIcon($icon) {  
+        $this->icon = $icon; 
     } 
 
     function getName() { 
