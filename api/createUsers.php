@@ -25,6 +25,7 @@ try {
     $data = $db->createUser($user);
 
     if($data){
+        setLastInsertId($data);
         produceResult("Compte utilisateur créé avec succès");
     }else{
         produceError("Problème rencontré lors de la création du compte");

@@ -23,6 +23,7 @@ if(empty($_REQUEST['idUser']) || empty($_REQUEST['idProduct'])
     $result = $db->createOrders($order);
 
     if($result){
+        setLastInsertId($data);
         produceResult("Commande créée avec succès");
     }else {
         produceError("Erreur lors de la création de la commande. Merci de réessayer !");

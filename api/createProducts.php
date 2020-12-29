@@ -25,6 +25,7 @@ $product->setImage($_REQUEST['image']);
 try {
    $data = $db->createProduct($product);
    if($data){
+        setLastInsertId($data);
        produceResult("Produit enrégistré avec succès !");
    }else {
        produceError("Problème rencontré lors de l'enregistrement");

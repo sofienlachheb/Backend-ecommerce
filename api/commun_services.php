@@ -35,6 +35,9 @@ function answer($response){
     echo json_encode($response);
 }
 
+function setLastInsertId($id){
+    $_REQUEST['lastInsertId'] = $id;
+}
 function produceError($message){
     logMessage($message);
     answer(['status'=>404,'message'=>$message]);
@@ -87,6 +90,7 @@ function controlAccess(){
 }
 
 function logMessage($message){
+    $data = implode($_REQUEST);
     $message = date('d/m/Y H:i:s').' '.$message.PHP_EOL;
     file_put_contents("../log/log.txt", $message, FILE_APPEND | LOCK_EX);
 }

@@ -14,6 +14,9 @@ if(empty($_REQUEST['id']) || empty($_REQUEST['name'])){
 $category = new CategoryEntity();
 $category->setIdCategory($_REQUEST['id']);
 $category->setName($_REQUEST['name']);
+if(isset($_REQUEST['icon']) || !empty($_REQUEST['icon'])){
+    $category->setIcon($_REQUEST['icon']);
+}
 
 try {
     $data = $db->updateCategory($category);
