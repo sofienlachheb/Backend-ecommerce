@@ -353,3 +353,16 @@
 29/12/2020 07:04:19 404 Tentative d'accès à la page : 
 29/12/2020 07:04:33 404 Tentative d'accès à la page : ./getUseors.php
 29/12/2020 07:04:33 404 Tentative d'accès à la page : 
+17/01/2021 16:07:40 Accès à la page : ./getProducts.php
+17/01/2021 16:07:40 404 Tentative d'accès à la page : 
+17/01/2021 16:07:46 Accès à la page : ./getProducts.php
+17/01/2021 16:07:46 404 Tentative d'accès à la page : 
+08/02/2021 12:50:10 Accès à la page : ./getProducts.php
+08/02/2021 12:50:11 404 Tentative d'accès à la page : 
+08/02/2021 12:50:17 Accès à la page : ./getProducts.php
+08/02/2021 12:50:17 404 Tentative d'accès à la page : 
+08/02/2021 12:52:36 Accès à la page : ./getProducts.php
+08/02/2021 12:52:36 404 Tentative d'accès à la page : 
+08/02/2021 12:53:07 Accès à la page : ./getProducts.php
+08/02/2021 12:53:40 Accès à la page : ./getProducts.php
+08/02/2021 12:53:41 Accès à la page : ./getProducts.php
