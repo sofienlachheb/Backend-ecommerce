@@ -7,6 +7,8 @@ if(!isset($_REQUEST['idUser']) || !isset($_REQUEST['idProduct'])
     return;
 }
 
+
+
 if(empty($_REQUEST['idUser']) || empty($_REQUEST['idProduct']) 
 || empty($_REQUEST['quantity']) || empty($_REQUEST['price'])){
     produceErrorRequest();
@@ -23,7 +25,7 @@ if(empty($_REQUEST['idUser']) || empty($_REQUEST['idProduct'])
     $result = $db->createOrders($order);
 
     if($result){
-        setLastInsertId($data);
+        setLastInsertId($result);
         produceResult("Commande créée avec succès");
     }else {
         produceError("Erreur lors de la création de la commande. Merci de réessayer !");

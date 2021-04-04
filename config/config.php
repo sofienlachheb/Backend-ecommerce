@@ -8,7 +8,7 @@
     define("DB_USER","root");
     define("DB_PASSWORD","");
     define("HOST", "localhost");
-    define("DB_NAME", "test_ecommerce");
+    define("DB_NAME", "ecommerce");
 
     $METHODES = [
       "get"=>["description"=>"Lire les données","prefixe"=>"get" ],
